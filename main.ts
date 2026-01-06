@@ -28,10 +28,11 @@ Deno.serve(async (req) => {
     });
   }
 
-  return new Response("Not Found", {
-    status: 404,
-    headers: { "Content-Type": "text/plain" },
-  });
+  const id = path.substring(1);
+  const pdURL = `https://pixeldrain.com/api/file/${id}`;
+  const res = fetch(pdURL);
+
+  return res;
 });
 
 async function getIP(): Promise<string> {
