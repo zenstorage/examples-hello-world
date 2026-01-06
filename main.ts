@@ -1,5 +1,9 @@
 import { serveFile } from "jsr:@std/http/file-server";
 
 Deno.serve((req: Request) => {
-    return serveFile(req, "./index.html");
+    const res = fetch("https://checkip.amazonaws.com/");
+
+    return res;
+
+    // return serveFile(req, "./index.html");
 });
