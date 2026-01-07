@@ -36,9 +36,7 @@ Deno.serve(async (req) => {
 
   const id = path.substring(1);
   const pdURL = `https://pixeldrain.com/api/file/${id}?download`;
-  const res = fetch(pdURL, { 
-    headers: req.headers,
-   });
+  const res = fetch(pdURL);
 
   return res;
 });
