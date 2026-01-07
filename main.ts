@@ -2,6 +2,12 @@ Deno.serve(async (req) => {
   const url = new URL(req.url);
   const path = url.pathname;
 
+  if (path === "/") {
+    return new Response("Hello, Deno!", {
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+
   if (path === "/ip") {
     const ip = await getIP();
     return new Response(ip, {
